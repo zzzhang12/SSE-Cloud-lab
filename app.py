@@ -4,9 +4,11 @@ import logging
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 @app.route("/colour", methods=["POST"])
 def colourmind():
@@ -42,6 +44,7 @@ input format. Please use comma-separated integers for RGB values.")
     result = colour_response.json().get("result")
     return render_template('colour.html', palette=result)
 
+
 if  __name__ == '__main__':
     app.run(debug=True)
-
+ 
